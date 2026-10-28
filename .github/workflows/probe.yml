@@ -1,0 +1,16 @@
+name: probe
+on: push
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "== game"; curl -s https://meta.fabricmc.net/v2/versions/game | jq -c '.[0:12]'
+          echo "== loader"; curl -s https://meta.fabricmc.net/v2/versions/loader | jq -c '.[0:3]'
+          echo "== loom"; curl -s https://maven.fabricmc.net/net/fabricmc/fabric-loom/net.fabricmc.fabric-loom.gradle.plugin/maven-metadata.xml | tail -25
+          echo "== loom old id"; curl -s https://maven.fabricmc.net/fabric-loom/fabric-loom.gradle.plugin/maven-metadata.xml | grep -o '<latest>.*</latest>'
+          echo "== api"; curl -s https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/maven-metadata.xml | grep '26\.3' | tail -5
+          echo "== api modrinth"; curl -s 'https://api.modrinth.com/v2/project/fabric-api/version?game_versions=%5B%2226.3%22%5D' | jq -c '[.[0:3][] | {version_number, date_published}]'
+          echo "== java"; curl -s https://piston-meta.mojang.com/mc/game/version_manifest_v2.json | jq -c '.latest'
+          echo "== template"; curl -s https://raw.githubusercontent.com/FabricMC/fabric-example-mod/HEAD/build.gradle; curl -s https://raw.githubusercontent.com/FabricMC/fabric-example-mod/HEAD/gradle.properties; curl -s https://raw.githubusercontent.com/FabricMC/fabric-example-mod/HEAD/gradle/wrapper/gradle-wrapper.properties; curl -s https://raw.githubusercontent.com/FabricMC/fabric-example-mod/HEAD/settings.gradle; curl -s https://raw.githubusercontent.com/FabricMC/fabric-example-mod/HEAD/.github/workflows/build.yml
+          echo "== branches"; curl -s https://api.github.com/repos/FabricMC/fabric-example-mod/branches | jq -r '.[].name'
