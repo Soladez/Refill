@@ -1,0 +1,6 @@
+{
+	"key.category.refill.main": "Refill",
+	"key.refill.toggle": "Toggle Auto-Refill",
+	"refill.message.enabled": "Auto-Refill: §aON",
+	"refill.message.disabled": "Auto-Refill: §cOFF"
+}

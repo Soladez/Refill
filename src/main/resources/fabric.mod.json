@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "refill",
+	"version": "${version}",
+	"name": "Refill",
+	"description": "Clientseitige Mod, die aufgebrauchte Items in der Hand automatisch aus dem Inventar nachfüllt. Ein/Aus mit ALT GR.",
+	"authors": ["Soladez"],
+	"contact": {
+		"sources": "https://github.com/Soladez/Refill",
+		"issues": "https://github.com/Soladez/Refill/issues"
+	},
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["de.soladez.refill.RefillClient"]
+	},
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": "~${minecraft_version}",
+		"java": ">=25",
+		"fabric-key-mapping-api-v1": "*",
+		"fabric-lifecycle-events-v1": "*"
+	}
+}

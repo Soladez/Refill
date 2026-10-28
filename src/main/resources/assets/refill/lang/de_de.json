@@ -1,0 +1,6 @@
+{
+	"key.category.refill.main": "Refill",
+	"key.refill.toggle": "Auto-Nachfüllen umschalten",
+	"refill.message.enabled": "Auto-Nachfüllen: §aAN",
+	"refill.message.disabled": "Auto-Nachfüllen: §cAUS"
+}
