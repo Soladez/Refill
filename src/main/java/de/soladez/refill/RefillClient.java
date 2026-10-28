@@ -46,8 +46,8 @@ public final class RefillClient implements ClientModInitializer {
 			boolean enabled = !RefillConfig.isEnabled();
 			RefillConfig.setEnabled(enabled);
 			if (client.player != null) {
-				client.player.displayClientMessage(Component.translatable(
-						enabled ? "refill.message.enabled" : "refill.message.disabled"), true);
+				client.player.sendOverlayMessage(Component.translatable(
+						enabled ? "refill.message.enabled" : "refill.message.disabled"));
 			}
 		}
 
